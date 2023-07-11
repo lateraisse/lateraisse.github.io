@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+<title>LateRAISSE</title>
+<link href="BlogPostAssets/styles/blogPostStyle.css" rel="stylesheet" type="text/css">
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.--><script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/montserrat:n4:default;source-sans-pro:n2:default.js" type="text/javascript"></script>
+
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	
+	<script>
+	var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap" style="color: #FFFFFF">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 100 - Math.random() * 100; //changetime
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 50;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff; color:#202020}";
+        document.body.appendChild(css);
+    };
+	</script>
+	
+<meta name="google-site-verification" content="kO13Hc3VVcIrdA_JMssDp7vmwAdDOjt3eQTmShi7uYQ" />
+</head>
+
+<body>
+<div id="mainwrapper" >
+  <header style="background-color: #376C94"> 
+    <!--**************************************************************************
+    Header starts here. It contains Logo and 3 navigation links. 
+    ****************************************************************************-->
+    <div id="logo" style="background-color: #376C94">
+      <!-- <img src="logoImage.png" alt="sample logo"> -->
+      <!-- Company Logo text -->
+    <a href="index.html" style="color: #FFFFFF">LateRAISSE</a></div>
+    <nav style="background-color: #376C94; color: #ffffff">  <a href="plan.html"> Schedule </a> <a href="call4papers.html" title="Link">Call for Papers</a> <a href="sub.html" title="Link">Accepted Papers</a><a href="pc.html" title="Link">Programme Committee</a> <a href="key.html" title="Link">Key Note</a> </nav>
+	  
+	  <script>
+function myFunction() {
+  alert("To be Announced");
+}
+</script>
+  </header>
+  <div id="content">
+    <div class="notOnDesktop"> 
+      <!-- This search box is displayed only in mobile and tablet laouts and not in desktop layouts -->
+      <input type="text" placeholder="Search">
+    </div>
+    <section id="mainContent"> 
+      <!--************************************************************************
+    Main Blog content starts here
+    ****************************************************************************-->
+      <h1>
+        <!-- Blog title -->
+      Language Technology and Resources for a fAir, Inclusive, and Safe SociEty</h1>
+      <h3>
+        <!-- Tagline -->
+      LateRAISSE at LREC'22</h3>
+	    <h4> Workshop Date: 25th June 2022 (Saturday) </h4>
+      <div id="bannerImage" style="background-color: #376C94;">
+		  <div class="jumbotron text-center" style="background-color:#376c94; color: #FFFFFF">
+		<h1>
+			<a href="" class="typewrite" data-period="1000" data-type='["The workshop is a full day event", "to be held on Saturday June 25, 2022", "in Marseille, France", "at Le Palais du Pharo"]' style="font-size: 18px"> </a>
+			<span class="wrap"></span></div></div>
+      <p style="color: #376C94"> Call is now closed. </p>
+      <p style="color: #376C94">For more information, see <a href="plan.html">Workshop Schedule</a> and <a href="sub.html">Accepted Papers </a></p>
+      <p style="color: #376C94"> This one-day workshop will provide a forum to present and discuss research work on creation and use of language resources and tools focusing on identifying and raising awareness of bias and discrimination in social computational systems on one hand and harassment and bullying in the online spaces on the other hand. This workshop is intended to bring together technical and non-technical experts in the computing and social science sub-disciplines to focus on the issue of social inclusion and safety from different perspectives. The aim of the workshop is to provoke and solicit research work that implements relevant state-of-the-art machine learning and natural language processing technologies for a fair, inclusive and safe society. The workshop also aims to promote research and the development of unbiased and inclusive language technologies. The workshop also aims to promote research and the development of unbiased and inclusive language technologies.</p>
+      <p style="color: #376C94">For more information see <a href="call4papers.html">Call for Papers</a>&nbsp;</p>
+		  
+	<div class="jumbotron text-center" style="background-color:#376c94; color: #FFFFFF">
+		  <h1 style="color: #FFFFFF"> Topics of Interest</h1>
+		<p style="color: #FFFFFF">While this is not exhaustive, we encourage authors to submit academic work on the intersection of the following:</p>
+		  
+		  <h3 style="color: #FFFFFF">1. Bias and Discrimination in Recruitment and Workplace</h3>
+		  <p style="color: #FFFFFF">Hiring is critical to society because it determines who can access economic opportunities to support themselves and their families (Bogen and Rieke, 2018). Studies have shown that hiring decisions are not always objective, therefore giving room to bias, discrimination, and unfair decisions influenced by look, gender, race, sexuality, etc. (Bendick Jr and Nunes, 2013; Gaucher et al., 2011). However, studies have established a strong correlation between diversity and inclusiveness in the workplace and an increase in innovation, productivity, and profitability of businesses, thereby making the elimination of bias not only a moral issue but equally an economic one (Zhang, 2020). In today’s changing society, there is an increasing need for equality of opportunity and inclusiveness in the workplace.</p>
+	    <p style="color: #FFFFFF"><em>We expect papers which use NLP and Artificial Intelligence technologies to illustrate or mitigate bias in Human Resources (HR) and workplace.</em></p>
+		  
+	    <h3 style="color: #FFFFFF">2. Bias and Discrimination in Legal Decision Making</h3>
+	    <p style="color: #FFFFFF">Similarly, studies have established the negative influence of bias and stereotypes in the application of police force and criminal justice system, especially towards racial minorities (Goff et al., 2016; Yang, 2015). Text analytics on court documents have proven implicit racial bias in appellate court opinions from US states and federal courts (Rice et al., 2019). Moreover, studies have found that gender attitudes may play a role in the judicial process and court decisions by female judges are more likely to be overturned (Ahola et al., 2009; Ornaghi et al., 2019). The ultimate motto of the legal profession is ‘equality before the law’, and in fact, society will not be safe if justice were easily miscarried or trampled on. Therefore, there is an increasing need to develop techniques and tools to promote equality and fairness in the legal decision making process.</p>
+	    <p style="color: #FFFFFF"><em>We expect papers with application of NLP tools in the legal domain for developing a fair legal decision-making system towards various social groups</em></p>
+		
+		  <h3 style="color: #FFFFFF"> 3. Exclusive and Offensive Language Identification especially in low-resource language settings </h3>
+	    <p style="color: #FFFFFF">On the other hand, the prevalence of harmful content and abusive behaviour on social media has become more concerning with the pandemic that has forced more people to be online now than at any other time. More than ever, many people undergo emotional trauma and heightened mental health issues due to overexposure to harmful contents on the internet. For instance, 44% of pre- adolescents have encountered more cyberbullying incidents during the COVID-19 lockdown (Armitage, 2021). While there have been solutions to identify harmful content online, their impacts and performances have been limited due to data and annotation challenges. Moreover, most works have been applied to English and other widely spoken EU languages with plenty of resources. Systems that can provide real-time analysis of online content to detect harmful content must be designed if we are to make the internet a better and more respectful virtual space. However, for a global impact, it is equally important to develop data and tools for many widely spoken but not well- documented languages, e.g. African and Asian languages.</p>
+	    <p style="color: #FFFFFF">We expect research papers focusing on building NLP tools and resources targeting the low resource languages, e.g. classification and/or information extraction models, datasets, and multilingual Transformer- based language models fine-tuned for detecting a wide range of antisocial online behaviours, such as those already highlighted in the literature <em>(Nadali et. al., 2013; Slonje et. al., 2013, and Bauman, S. 2015)</em> for non-English societies.</p>
+	  </div>
+
+    </section>
+    <section id="sidebar"> 
+      <!--************************************************************************
+    Sidebar starts here. It contains a searchbox, sample ad image and 6 links
+    ****************************************************************************-->
+    <h5 style="color: #FFFFFF; text-align: center">Workshop Schedule</h5>
+		&nbsp;
+		<center>
+    <em><p style="font-size: 20px; color: #FFFFFF"> 25th June, 2022 </p></em>			
+    <em><p style="font-size: 15px; color: #FFFFFF"> Session - 1 </p></em>
+    <p style="color: #f5f5f5; font-size: 12px;"> Bias and Responsible Research </p>
+    <p style="color: #a7cdf2;"> 09:00 - 10:30 </p>
+
+    <em><p style="font-size: 15px; color: #FFFFFF"> Session - 2 </p></em>
+    <p style="color: #f5f5f5; font-size: 12px;"> Exclusive and Offensive Language </p>
+    <p style="color: #a7cdf2;"> 11:00 - 12:45 </p>
+		
+		<em><p style="font-size: 15px; color: #FFFFFF"> Session - 3 </p></em>
+    <p style="color: #f5f5f5; font-size: 12px;"> Law & NLP </p>
+    <p style="color: #a7cdf2;"> 14:15 - 15:30 </p>
+		
+		<em><p style="font-size: 15px; color: #FFFFFF"> Session - 4 </p></em>
+    <p style="color: #f5f5f5; font-size: 12px;"> Weights & Biases Competition </p>
+    <p style="color: #a7cdf2;"> 15:30 - 17:00 </p>
+    </center>
+    <button class="button button2"><a href="lateraisse-plan-draft.pdf" style="color: #376C94"><strong>Download Schedule</strong></a></button>  
+		
+		<br></br>
+		
+	<h5 style="color: #FFFFFF; text-align: center">Organizers</h5>
+		&nbsp;
+		<p style="color:#FFFFFF; font-size: 15px"><strong>Dr. Kolawole Adebayo </strong> </p>
+		<p style="color:#FFFFFF; font-size: 12px">(Dublin City University / ADAPT Centre, Ireland)</p>
+		<p style="color:#FFFFFF; font-size: 15px"><a href="https://www.maastrichtuniversity.nl/p70070981" style="color:#FFFFFF; font-size: 15px"> <strong> Dr. Rohan Nanda </strong></a> </p><p style="color:#FFFFFF; font-size: 12px">(Institute of Data Science (IDS) and Maastricht Law and Tech Lab, Maastricht University, Netherlands)</p>
+	<p style="color:#FFFFFF; font-size: 15px"><a href="https://antibullyingcentre.ie/people/kanishk-verma/" style="color:#FFFFFF; font-size: 15px"> <strong>Kanishk Verma</strong> </a></p><p style="color:#FFFFFF; font-size: 12px">(Dublin City University / ADAPT Centre / National Anti-Bullying Centre, Ireland)</p>
+	<p style="color:#FFFFFF; font-size: 15px"><a href="https://www.dcu.ie/computing/people/brian-davis" style="color:#FFFFFF; font-size: 15px"> <strong> Prof. Brian Davis </strong></a></p><p style="color:#FFFFFF; font-size: 12px">(Dublin City University / ADAPT Centre, Ireland)</p>
+		
+		<br></br>
+		
+		<br></br>
+    </section>
+    
+  <div id="footerbar">
+	  <center> © LateRAISSE</center>
+	  
+	  <!-- Small footerbar at the bottom --></div>
+</div>
+</body>
+</html>
